@@ -144,7 +144,7 @@ ul {
 }
 
 .welcome-message {
-  color: #ffcc00;
+  color: #fc0;
   font-size:110%;
   font-style: italic;
   font-weight: 600;
@@ -161,7 +161,7 @@ ul {
 #header {
   margin: 0;
   padding: 0;
-  border-bottom: 3px solid #FFCC00;
+  border-bottom: 3px solid #fc0;
 }
 
 header,
@@ -182,7 +182,7 @@ header,
 }
 
 #skills-h3 {
-  color: #C50000;
+  color: #c50000;
 }
 
 #skills li {
@@ -206,10 +206,25 @@ header,
   color: #fc0;
 }
 
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
 /* Hide msg if display is not at least 1000px */
 @media only screen and (max-width: 1000px) {
   .welcome-message {
     display: none;
+  }
+  #lets-connect {
+    margin-top: 5%;
   }
 }
 
@@ -224,5 +239,8 @@ header,
   }
   #skills li span {
     font-size: 90%;
+  }
+  #lets-connect {
+    margin-top: 10%;
   }
 }
