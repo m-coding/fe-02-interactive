@@ -242,3 +242,8 @@ bio.display();
 work.display();
 projects.display();
 education.display();
+
+/* GOOGLE MAP
+----------------------------------*/
+$('#mapDiv').append(googleMap);
+$('#mapDiv').append(internationalizeButton);
