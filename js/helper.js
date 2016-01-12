@@ -70,14 +70,21 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // code goes here
-});
+  var x = loc.pageX;
+  var y = loc.pageY;
 
+  logClicks(x,y);
+});
 
 /* GOOGLE MAPS
 ----------------------------------*/
 var map;
 
+/**
+ * Displays a Google Map
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/reference
+ */
 function initializeMap() {
   var locations;
 
@@ -87,8 +94,13 @@ function initializeMap() {
 
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
+  /**
+   * Returns an array of every location string from
+   * the JSONs written for bio, education, and work.
+   *
+   * @return {string[]} locations
+   */
   function locationFinder() {
-
     var locations = [];
 
     locations.push(bio.contacts.location);
@@ -98,19 +110,19 @@ function initializeMap() {
     });
 
     work.jobs.forEach(function(job){
-      locations.push(job.location);
+      if(job.location != "Classified") // skip this location
+         locations.push(job.location);
     });
 
     return locations;
   } // locationFinder()
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
+  /**
+   * Reads Google Places search results to create map pins.
+   *
+   * @param {object} placeData Information about a single location.
+   */
   function createMapMarker(placeData) {
-
     // The next lines save location data from the search result object to local variables
     var lat = placeData.geometry.location.lat();  // latitude from the place service
     var lon = placeData.geometry.location.lng();  // longitude from the place service
@@ -124,13 +136,10 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
+    // infoWindows are helper windows that open when you click/hover over a pin
     var infoWindow = new google.maps.InfoWindow({
       content: name
     });
-
 
     google.maps.event.addListener(marker, 'click', function() {
       // code goes here
@@ -145,22 +154,25 @@ function initializeMap() {
     map.setCenter(bounds.getCenter());
   }
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
+  /**
+   * If search results are returned, creates a new map marker for that location.
+   *
+   * @param {object} results
+   * @param {string} status
+   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
   }
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
+  /**
+   * Takes locations created by locationFinder() and fires off
+   * Google place searches for each location.
+   *
+   * @param {string[]} locations
+   */
   function pinPoster(locations) {
-
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
@@ -184,8 +196,7 @@ function initializeMap() {
   // locations is an array of location strings returned from locationFinder()
   locations = locationFinder();
 
-  // pinPoster(locations) creates pins on the map for each location in
-  // the locations array
+  // creates pins on the map for each location in the locations array
   pinPoster(locations);
 
 } // initializeMap()
@@ -193,18 +204,7 @@ function initializeMap() {
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window and adjust map bounds
+// Vanilla JS way to listen for resizing of the window
 window.addEventListener('resize', function(e) {
   map.fitBounds(mapBounds); // Make sure the map bounds get updated on page resize
 });
-
-/* fix for 0 height map using bootstrap fluid
-   https://github.com/twbs/bootstrap/issues/2475
-
-$(window).resize(function () {
-    var h = $(window).height(),
-        offsetTop = 60; // Calculate the top offset
-
-    $('#map').css('height', (h - offsetTop));
-}).resize();
-*/

@@ -1,8 +1,10 @@
 /* BIOGRAPHY
 ----------------------------------*/
 
-// JSON strict RFC 4627 spec requires names / keys to be in double quotes
-// also jsonlint.com won't work if you use single quotes
+/**
+  * JSON strict RFC 4627 spec requires names / keys to be in double quotes
+  * also jsonlint.com won't work if you use single quotes
+  */
 var bio = {
   "name": "Kara Danvers",
   "role": "Supergirl",
@@ -36,10 +38,11 @@ bio.display = function() {
   $.each(bio.contacts, function(key, value) {
     // html here so i can re-use it in the loop
     contact = '<li><i class="icons icon-%icon%"></i> %contact%</li>';
-    formattedContact = contact.replace('%icon%', key).replace('%contact%', value);
-    $('#topContacts').append(formattedContact);
-    $('#footerContacts').append(formattedContact);
+    formattedContact += contact.replace('%icon%', key).replace('%contact%', value);
   }); // $.each
+
+  $('#topContacts').append(formattedContact);
+  $('#footerContacts').append(formattedContact);
 
   formattedWelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
   $('#bio').prepend(formattedWelcomeMsg);
