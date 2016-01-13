@@ -222,6 +222,9 @@ function initializeMap() {
   // creates pins on the map for each location in the locations array
   pinPoster(locations);
 
+  // hide loading animation
+  $('#spinnerContainer').addClass('hide');
+
 } // initializeMap()
 
 // Calls the initializeMap() function when the page loads
