@@ -18,7 +18,7 @@ var bio = {
   "welcomeMessage": "To most people I'm an assistant at Catco Worldwide Media. But in secret, I work with my adoptive sister for the DEO to protect my city from alien life and anyone else that means to cause it harm. I am Supergirl.",
   "skills": ["Super strength", "Flight","Invulnerability","Super hearing","X-ray vision","Solar energy absorption"],
   "biopic": "images/supergirl.gif"
-}
+};
 
 bio.display = function() {
   var formattedName = '',
@@ -57,7 +57,7 @@ bio.display = function() {
       $('#skills:last').append(formattedSkills);
     }); // $.each skills
   } // if
-} // bio.display
+}; // bio.display
 
 /* EDUCATION
 ----------------------------------*/
@@ -94,7 +94,7 @@ var education = {
       "url": "https://www.udacity.com/wiki/ud245"
     }
   ]
-}
+};
 
 education.display = function() {
   var formattedName = '',
@@ -131,7 +131,7 @@ education.display = function() {
 
   $.each(education.onlineCourses, function(index, onlineCoursesObj) {
     // insert the header only once
-    if(index == 0) $('#education').append(HTMLonlineClasses);
+    if(index === 0) $('#education').append(HTMLonlineClasses);
 
     // inserts .online-entry div
     $('#education').append(HTMLonlineStart);
@@ -146,7 +146,7 @@ education.display = function() {
     formattedURL = HTMLonlineURL.replace('%data%', onlineCoursesObj.url).replace('#', onlineCoursesObj.url);
     $('.online-entry:last').append(formattedURL);
   }); // $.each onlineCourses
-} // education.display
+}; // education.display
 
 /* WORK
 ----------------------------------*/
@@ -167,7 +167,7 @@ var work = {
       "description": "Monitor those with extranormal superpowers and prevent any threat to the general public."
     }
   ]
-}
+};
 
 work.display = function() {
   var formattedEmployer = '',
@@ -190,7 +190,7 @@ work.display = function() {
 
       $('#workExperience .work-entry:last').append(formattedAll);
   }); // $.each
-} // function()
+}; // function()
 
 /* PROJECTS
 ----------------------------------*/
@@ -209,7 +209,7 @@ var projects = {
       "images": ["images/reactron1.jpg", "images/reactron2.jpg"]
     }
   ]
-}
+};
 
 projects.display = function() {
   var formattedTitle = '',
@@ -237,7 +237,7 @@ projects.display = function() {
       }); // $.each images
     } // if
   }); // $.each
-} // projects.display
+}; // projects.display
 
 /* DISPLAY
 ----------------------------------*/
