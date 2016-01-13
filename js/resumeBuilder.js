@@ -37,7 +37,7 @@ bio.display = function() {
 
   $.each(bio.contacts, function(key, value) {
     // html here so i can re-use it in the loop
-    contact = '<li><i class="icons icon-%icon%"></i> %contact%</li>';
+    contact = '<li class="item"><i class="icons icon-%icon%"></i> %contact%</li>';
     formattedContact += contact.replace('%icon%', key).replace('%contact%', value);
   }); // $.each
 
@@ -133,18 +133,18 @@ education.display = function() {
     // insert the header only once
     if(index == 0) $('#education').append(HTMLonlineClasses);
 
-    // inserts .education-entry div
-    $('#education').append(HTMLschoolStart);
+    // inserts .online-entry div
+    $('#education').append(HTMLonlineStart);
 
     formattedTitle = HTMLonlineTitle.replace('%data%', onlineCoursesObj.title);
     formattedSchool = HTMLonlineSchool.replace('%data%', onlineCoursesObj.school);
-    $('.education-entry:last').append(formattedTitle + formattedSchool);
+    $('.online-entry:last').append(formattedTitle + formattedSchool);
 
     formattedDate = HTMLonlineDates.replace('%data%', onlineCoursesObj.date);
-    $('.education-entry:last').append(formattedDate);
+    $('.online-entry:last').append(formattedDate);
 
     formattedURL = HTMLonlineURL.replace('%data%', onlineCoursesObj.url);
-    $('.education-entry:last').append(formattedURL);
+    $('.online-entry:last').append(formattedURL);
   }); // $.each onlineCourses
 } // education.display
 
@@ -246,7 +246,23 @@ work.display();
 projects.display();
 education.display();
 
-/* GOOGLE MAP
+/* DISPLAY GOOGLE MAP
 ----------------------------------*/
 $('#mapDiv').append(googleMap);
-$('#mapDiv').append(internationalizeButton);
+
+/* DISPLAY INTERNATIONAL BUTTON
+----------------------------------*/
+$('#international').append(internationalizeButton);
+
+/* HIDE EMPTY ELEMENTS
+----------------------------------*/
+// jQuery Note:
+// An empty element is an element without child elements or text
+
+$('#topContacts:empty').addClass('hide');
+$('#footerContacts:empty').addClass('hide');
+$('h1:empty').addClass('hide');
+$('.work-entry:empty').parent().addClass('hide');
+$('.project-entry:empty').parent().addClass('hide');
+$('.education-entry:empty').parent().addClass('hide');
+// if( $('#map').val().length == 0) $('#mapDiv').addClass('hide');
