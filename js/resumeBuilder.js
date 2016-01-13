@@ -200,13 +200,13 @@ var projects = {
       "title": "Kryptonite",
       "dates": "2012",
       "description": "A radioactive element from Superman's home planet of Krypton.",
-      "images": ["http://placehold.it/150x150", "https://placeimg.com/150/150/tech", "https://placebear.com/150/150"]
+      "images": ["images/kryptonite1.jpg", "images/kryptonite2.jpg"]
     },
     {
       "title": "Reactron",
       "dates": "2014",
       "description": "A biomedical tech suit powered by Thorium 232.",
-      "images": ["http://placehold.it/150x150", "https://placeimg.com/150/150/nature", "https://placebear.com/150/150"]
+      "images": ["images/reactron1.jpg", "images/reactron2.jpg"]
     }
   ]
 }
@@ -215,7 +215,7 @@ projects.display = function() {
   var formattedTitle = '',
       formattedDates = '',
       formattedDesc = '',
-      formattedImg = '';
+      formattedImg = 'http://placehold.it/150x150';
 
   $.each(projects.projects, function(index, projectObj) {
     // inserts .project-entry div
