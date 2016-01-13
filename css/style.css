@@ -10,7 +10,7 @@ p {
 }
 
 body {
-  background-color: #2133ff;
+  background-color: #039;
   color: #afbaff;
 }
 
@@ -119,6 +119,7 @@ button:hover {
 .clear-fix {
   overflow: auto;
 }
+
 .education-entry,
 .online-entry,
 .work-entry,
@@ -138,6 +139,12 @@ button:hover {
 .work-entry a:hover,
 .project-entry a:hover {
   color: #00fa9a;
+}
+
+.project-entry img {
+  width: 150px;
+  height: 150px;
+  margin: 20px 30px 0 0;
 }
 
 .date-text {
@@ -235,6 +242,12 @@ header,
   background-color: #082468;
 }
 
+#workExperience,
+#projects,
+#education {
+  padding-bottom: 20px;
+}
+
 #footerContacts {
   color: #fff;
   background-color: #082468;
@@ -269,6 +282,10 @@ header,
   color: #fc0;
 }
 
+#mapCol {
+  min-height: 450px;
+}
+
 #mapDiv {
   height: 400px;
   width: 100%;
@@ -286,13 +303,18 @@ header,
   padding: 10px;
 }
 
+/* Lock center content and only grow margins after 1500px width */
+@media only screen and (min-width: 1500px) {
+  .container-fluid {
+    margin: 0 auto;
+    max-width: 1500px;
+  }
+}
+
 /* Hide msg if display is not at least 1000px */
 @media only screen and (max-width: 1000px) {
   .welcome-message {
     display: none;
-  }
-  #lets-connect {
-    margin-top: 5%;
   }
 }
 
@@ -308,7 +330,11 @@ header,
   #skills li span {
     font-size: 90%;
   }
-  #lets-connect {
-    margin-top: 10%;
+}
+
+/* Give map more vertical room on smaller screens */
+@media only screen and (max-width: 400px) {
+  #mapCol {
+    min-height: 500px;
   }
 }
