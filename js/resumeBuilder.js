@@ -136,14 +136,14 @@ education.display = function() {
     // inserts .online-entry div
     $('#education').append(HTMLonlineStart);
 
-    formattedTitle = HTMLonlineTitle.replace('%data%', onlineCoursesObj.title);
+    formattedTitle = HTMLonlineTitle.replace('%data%', onlineCoursesObj.title).replace('#', onlineCoursesObj.url);
     formattedSchool = HTMLonlineSchool.replace('%data%', onlineCoursesObj.school);
     $('.online-entry:last').append(formattedTitle + formattedSchool);
 
     formattedDate = HTMLonlineDates.replace('%data%', onlineCoursesObj.date);
     $('.online-entry:last').append(formattedDate);
 
-    formattedURL = HTMLonlineURL.replace('%data%', onlineCoursesObj.url);
+    formattedURL = HTMLonlineURL.replace('%data%', onlineCoursesObj.url).replace('#', onlineCoursesObj.url);
     $('.online-entry:last').append(formattedURL);
   }); // $.each onlineCourses
 } // education.display
