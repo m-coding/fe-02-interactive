@@ -19,7 +19,7 @@ var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkTitle = ' — %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
@@ -49,6 +49,12 @@ var googleMap = '<div id="map"></div>';
 
 /* INTERNATIONAL NAME CONVERTER
 ----------------------------------*/
+
+/**
+ * Converts the last name to all capital letters.
+ *
+ * @return {string} international name
+ */
 function inName() {
   var name = bio.name,
       intlName = '';
@@ -80,7 +86,8 @@ function logClicks(x,y) {
     }
   );
 
-  if(window.console) // check that the console is open
+  // check that the console is open, before logging anything
+  if(window.console)
      console.log('x location: ' + x + '; y location: ' + y);
 } // logClicks()
 
@@ -156,8 +163,9 @@ function initializeMap() {
       content: name
     });
 
+    // open the infoWindow when a marker is clicked
     google.maps.event.addListener(marker, 'click', function() {
-      // code goes here
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
