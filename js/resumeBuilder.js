@@ -265,4 +265,3 @@ $('h1:empty').addClass('hide');
 $('.work-entry:empty').parent().addClass('hide');
 $('.project-entry:empty').parent().addClass('hide');
 $('.education-entry:empty').parent().addClass('hide');
-// if( $('#map').val().length == 0) $('#mapDiv').addClass('hide');
