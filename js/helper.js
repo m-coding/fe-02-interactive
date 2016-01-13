@@ -231,3 +231,17 @@ window.addEventListener('load', initializeMap);
 window.addEventListener('resize', function(e) {
   map.fitBounds(mapBounds); // Make sure the map bounds get updated on page resize
 });
+
+/* INSTAGRAM FEED
+----------------------------------*/
+var supergirlFeed = new Instafeed({
+    get: 'user',
+    userId: '2100400626', // username: supergirlofficial
+    accessToken: '975177304.467ede5.c848cc5ceb5a4f0fa1af9c193b0be9f0'
+});
+
+// load the instagram photos
+supergirlFeed.run();
+
+// scroll the instagram photos
+$('#instafeed').simplyScroll({ frameRate: 20, startOnLoad: true });
