@@ -37,6 +37,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
+var HTMLonlineStart = '<div class="online-entry"></div>';
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' — %data%</a>';
@@ -48,12 +49,24 @@ var googleMap = '<div id="map"></div>';
 
 /* INTERNATIONAL NAME CONVERTER
 ----------------------------------*/
+function inName() {
+  var name = bio.name,
+      intlName = '';
+
+  name = name.trim().split(' ');
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+  intlName = name.join(' ');
+
+  return intlName;
+} // inName()
+
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName() || function(){};
     $('#name').html(iName);
   });
-});
+}); // document.ready
 
 /* CLICK LOCATION LOGGER
 ----------------------------------*/
@@ -66,15 +79,17 @@ function logClicks(x,y) {
       y: y
     }
   );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
+
+  if(window.console) // check that the console is open
+     console.log('x location: ' + x + '; y location: ' + y);
+} // logClicks()
 
 $(document).click(function(loc) {
   var x = loc.pageX;
   var y = loc.pageY;
 
   logClicks(x,y);
-});
+}); // document.click
 
 /* GOOGLE MAPS
 ----------------------------------*/
