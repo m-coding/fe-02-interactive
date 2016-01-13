@@ -5,7 +5,7 @@ li,
 p {
   padding:0;
   margin:0;
-  font-family: "Kanit", sans-serif;
+  font-family: "Kanit", Tahoma, "Trebuchet MS", sans-serif;
   font-weight: 400;
 }
 
@@ -20,7 +20,7 @@ header {
 
 header span {
   color: #8294ff;
-  font: italic 600 16px "Kanit", sans-serif;
+  font: italic 600 16px "Kanit", Tahoma, "Trebuchet MS", sans-serif;
   margin-left: 6px;
 }
 
@@ -32,7 +32,7 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Viga", sans-serif;
+  font-family: "Viga", "Trebuchet MS", Candara, "Arial Black", sans-serif;
 }
 
 h1 {
@@ -89,6 +89,25 @@ ul {
   list-style-type: none;
 }
 
+button {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  padding: 3px 24px;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+.hide {
+  display: none;
+}
+
 .row {
   background-color: #123eab;
 }
@@ -101,18 +120,21 @@ ul {
   overflow: auto;
 }
 .education-entry,
+.online-entry,
 .work-entry,
 .project-entry {
   padding: 0 4%;
 }
 
 .education-entry a,
+.online-entry a,
 .work-entry a,
 .project-entry a {
   font-size: 110%;
 }
 
 .education-entry a:hover,
+.online-entry a:hover,
 .work-entry a:hover,
 .project-entry a:hover {
   color: #00fa9a;
@@ -156,6 +178,20 @@ ul {
   width: 110px;
   height: 150px;
   margin: 0 20px 20px 0;
+}
+
+.footer {
+  padding: 0;
+  margin: 0;
+}
+
+.footerConnect {
+  background-color: #c50000;
+}
+
+.footerCol {
+  padding: 0;
+  margin: 0;
 }
 
 #header {
@@ -216,6 +252,11 @@ header,
   display: block;
   height: 100%;
   margin: 0 5%;
+}
+
+#international {
+  text-align: center;
+  padding: 10px;
 }
 
 /* Hide msg if display is not at least 1000px */
