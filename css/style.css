@@ -270,7 +270,7 @@ header,
 }
 
 /* Make skills section smaller and vertical */
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 675px) {
   #skills-h3,
   #skills {
     display: block;
