@@ -194,6 +194,33 @@ button:hover {
   margin: 0;
 }
 
+.simply-scroll {
+  width: 100%;
+  height: 200px;
+}
+
+.simply-scroll .simply-scroll-clip {
+  height: 160px;
+}
+.simply-scroll-container {
+  position: relative;
+  padding: 10px 4%;
+}
+
+.simply-scroll-clip {
+  position: relative;
+  overflow: hidden;
+}
+
+#instafeed a {
+  margin-right: 30px;
+  vertical-align: top;
+  display: block;
+  width: 150px;
+  height: 150px;
+  float: left;
+}
+
 #header {
   margin: 0;
   padding: 0;
